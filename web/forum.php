@@ -1,7 +1,7 @@
 <?php
 use Symfony\Component\HttpFoundation\Response;
 
-$forum = $app['controller_factory'];
+$forum = $app['controllers_factory'];
 
 $forum->get("/", function(){
     return new Response('Acesso ao forum');

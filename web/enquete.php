@@ -1,7 +1,7 @@
 <?php
 use Symfony\Component\HttpFoundation\Response;
 
-$enquete = $app['controller_factory'];
+$enquete = $app['controllers_factory'];
 
 $enquete->get("/",function(){
     return new Response('Acesso à enquete');
