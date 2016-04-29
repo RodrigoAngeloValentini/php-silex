@@ -1,0 +1,9 @@
+{% extends "layout.twig" %}
+
+{% block titulo %}Titulo Olá{% endblock %}
+
+{% block conteudo %}
+    <h3>Olá {{ nome }}</h3>
+
+    Acesse o <a href="{{ path('link',{nome:nome}) }}">link</a>
+{% endblock %}
