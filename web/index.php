@@ -36,5 +36,22 @@ $app->get('/sucesso',function() use ($app){
     return $app['twig']->render('sucesso.twig',array());
 })->bind('sucesso');
 
+$app->get('/criaAdmin',function() use($app){
+    $repo = $app['user_repository'];
+    $repo->createAdminUser('admin','admin');
+});
+
+$app->get('/',function() use ($app) {
+    return $app['twig']->render('index.twig', array(
+        'username' => $app['security']->getToken()->getUser()
+    ));
+});
+
+$app->get('/login', function(Request $request) use ($app) {
+    return $app['twig']->render('login.twig', array(
+        'error'         => $app['security.last_error']($request),
+        'last_username' => $app['session']->get('_security.last_username'),
+    ));
+})->bind('login');
 
 $app->run();
